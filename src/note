@@ -1,0 +1,215 @@
+EPISODE 2
+
+import './App.css';
+
+function App() {
+  return (
+    <div className="App"> 
+      <User name = "Temitope" age = {15} email = "topilogy@gmail.com" />
+      <User name = "Funmilayo" age = {10} email = "funmi@gmail.com" />
+      <User name = "Dupe" age = {12} email = "dupe@gmail.com" /> 
+    </div>
+  );
+}
+
+const User = (props) => {
+  return (
+    <div>
+      <h1> {props.name} </h1>
+      <h1> {props.age} </h1>
+      <h1> {props.email} </h1>
+    </div>
+  );
+};
+
+export default App;
+
+
+EPISODDE 3: Implementing CSS
+import styles from './App.module.css';
+
+function App() {
+    return (
+        <div className={styles.App}>
+            <h1 className={styles.name}> Temitope </h1>
+        </div>
+    );
+}
+
+export default App;
+
+EPISODDE 3: Implementing CSS
+import './App.css';
+
+function App() {
+  const age = 15;
+  if (age >= 18) {
+    return (
+      <h1>OVER AGE</h1>
+    );
+  }
+  else {
+    return (
+      <div className = "App">
+        <h1>UNDER AGE</h1>
+      </div>
+    )
+  }
+}
+export default App;
+
+EPISODE 3: Conditional Rendering 1
+import './App.css';
+
+function App() {
+  const age = 17;
+  const isGreen = true;
+
+    return ( <div className="App">
+        {age >= 18 ? <h1>OVER AGE</h1> : <h1>UNDER AGE</h1>}
+        <h1 style={{ color: isGreen ? "green" : "red" }}>THIS HAS COLOR</h1>
+
+        {isGreen && <button>THIS IS BUTTON</button>}
+      </div>
+    );
+}
+
+export default App;
+
+EPISODE 3: Conditional Rendering 2
+import './App.css';
+
+function App() {
+  const age = 15;
+  if (age >= 18) {
+    return (
+      <h1>OVER AGE</h1>
+    )
+  }
+
+  else {
+    return (
+      <div className = "App">UNDER AGE</div>
+    )
+  }
+}
+
+export default App;
+
+Exercise 1: List
+import './App.css';
+import {Planets} from './Planets'
+
+function App() {
+  const planets= [
+      {name: "Mars", isGasPlanet: true},
+      {name: "Earth", isGasPlanet: false},
+      {name: "Jupiter", isGasPlanet: true},
+      {name: "Venus", isGasPlanet: false},
+      {name: "Uranus", isGasPlanet: true},
+  ];
+
+  return <div className = "App">
+          {planets.map((planets, key) => {
+            if (planets.isGasPlanet) {
+              return <h1>{planets.name}</h1>
+            }
+            else {
+              return <div>{planets.planets}</div>
+            }
+              return <Planets name={planets.name} isGasPlanet={planets.isGasPlanet} />
+          })}
+      </div>;
+}
+
+export default App;
+
+Episode 3: List
+import './App.css';
+
+function App() {
+  const names = ["Temitope", "Busayo", "Johnson", "Kikelomo"];
+  return (
+    <div className="App">
+      {names.map((names, key) => {
+        return <h1 key={key}>{names}</h1>
+      })}
+    </div>
+  );
+}
+
+export default App;
+
+Episode 3: List
+import './App.css';
+
+function App() {
+  const users = [
+    {name: "Temitope", age: "26"},
+    {name: "Modupe", age: "20"},
+    {name: "Funmilayo", age: "16"},
+  ];
+  return (
+    <div className="App">
+      {users.map((users, key) => {
+        return (
+          <User name = {users.name} age = {users.age}/>
+        )
+      })}
+    </div>
+  );
+}
+const User = (props) => {
+  return (
+    <div>
+      {props.name}
+      {props.age}
+    </div>
+  )
+}
+
+export default App;
+
+Exercise 1: List
+import './App.css';
+
+function App() {
+  const planets = [
+    {name: "Mars", isGasPlanet: true},
+    {name: "Earth", isGasPlanet: false},
+    {name: "Jupiter", isGasPlanet: true},
+    {name: "Venus", isGasPlanet: false},
+    {name: "Uranus", isGasPlanet: true},
+  ];
+  return (
+    <div className="App">
+      {planets.map((planet, key) => {
+        if (planet.isGasPlanet) return <h1>{planets.name}</h1>;    
+      })}
+    </div>
+  );
+}
+
+export default App
+
+EPISODE3: useState 1 - Button Increase
+import './App.css';
+import { useState } from 'react';
+
+
+function App() {
+  const [age, setAge] = useState(0);
+
+  const increaseAge = () => {
+    setAge(age + 1);
+  }
+
+  return (
+    <div className="App">
+      {age}
+      <button onClick={increaseAge}>increaseAge</button>
+    </div>
+  )
+}
+
+export default App;
