@@ -2,33 +2,24 @@ import './App.css';
 import { useState } from "react"
 
 function App() {
-  const [todoList, setTodoList] = useState([])
-  const [newTask, setNewTask] = useState("")
-
-  const handleChange = (event) => {
-    setNewTask(event.target.value)
-  }
-
-  const addTask = () => {
-    setTodoList([...todoList, newTask])
-  }
-
+  const value = localStorage.getItem('num')
+  const [number, setNumber] = useState(value ? JSON.parse(value) : 0);
+  
   return (
     <div className='App'>
-      <div className='addTask'>
-        <input onChange={handleChange} />
-        <button onClick={addTask}> Add Task</button>
-        <button>x</button>
-      </div>
-
-      <div className='list'>
-        {todoList.map((task) => {
-          return <h1>{task}</h1>
-        })}
-      </div>
+      <button
+        onClick={() => {
+          setNumber(number + 1);
+          localStorage.setItem('num', JSON.stringify(number+1))
+        }}
+      >
+        Increase count
+      </button>
+      <p>{number} </p>
     </div>
-  )
-}
+  );
+};
+
 
 
 export default App;
