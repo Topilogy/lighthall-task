@@ -1,5 +1,6 @@
-import './App.css';
+import "./App.css";
 import { useState } from "react"
+import "./App.module.css"
 
 //Deleting Task
 
@@ -33,7 +34,7 @@ function App() {
       <div className="list">
         {todoList.map((task) => {
           return (
-            <div>
+            <div className="">
               <h1>{task.taskName}</h1>
               <button onClick={() => deleteTask(task.id)}>X</button>
             </div>
